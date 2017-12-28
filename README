@@ -1,23 +1,22 @@
-* The provided Makefile:
-  1) builds a kernel
-  2) copies it into rootfs/boot/kernel/kernel
-  3) creates an ISO CD image with the rootfs/ contents
+50 POINTS Project - Cooperative Multitasking
 
-* To boot the system in QEMU, run:
-qemu-system-x86_64 -curses -drive id=boot,format=raw,file=$USER.img,if=none -drive id=data,format=raw,file=$USER-data.img,if=none -device ahci,id=ahci -device ide-drive,drive=boot,bus=ahci.0 -device ide-drive,drive=data,bus=ahci.1 -gdb tcp::9999
+Successfully implemented:
+1). Freelist for physical Pages, kmalloc
+2). Paging
+3). Loading Binaries by reading tarfs, switch to ring3, context switch between binaries, yield
+4). System calls
+5). COW Fork(), auto growing stack
+6). Handling segv page fault
+7). Terminals - reading and writing on console, timer, keyboard handling
+8). execvpe with fork, execution of kill, sleep, echo and ps binaries
+9). malloc and free implementation in user space
 
-Explanation of parameters:
-  -curses         use a text console (omit this to use default SDL/VNC console)
-  -drive ...      connect a CD-ROM or hard drive with corresponding image
-  -device ...     configure an AHCI controller for the boot and data disks
-  -gdb tcp::9999  listen for "remote" debugging connections on port NNNN
-  -S              wait for GDB to connect at startup
-  -no-reboot      prevent reboot when OS crashes
 
-* When using the -curses mode, switch to the qemu> console with ESC-2.
+References:
+- Most of the help was taken from osdev and James Malloy's kernel development tutorials (especially the Kernel Multitasking and User Mode Part). 
+- Other citations are written as comments in code.
 
-* To connect a remote debugger to the running qemu VM, from a different window:
-gdb ./kernel
+Instructions:
+- Please hit enter after every command. After sleep "SBUNIX:>" will come after the specified duration has ended.
+- Please keep single spaces between tokens in commands.
 
-At the (gdb) prompt, connect with:
-target remote localhost:9999

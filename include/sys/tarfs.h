@@ -1,8 +1,12 @@
+
 #ifndef _TARFS_H
 #define _TARFS_H
-
+#include<sys/defs.h>
+#define DIRECTORY_FLAG "5"
+#define FILE_FLAG "0"
 extern char _binary_tarfs_start;
 extern char _binary_tarfs_end;
+
 
 struct posix_header_ustar {
   char name[100];
@@ -23,5 +27,9 @@ struct posix_header_ustar {
   char prefix[155];
   char pad[12];
 };
+
+
+typedef struct posix_header_ustar HEAD;
+uint64_t find_executable(char *path);
 
 #endif
