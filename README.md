@@ -5,15 +5,15 @@ Rohan Vaish: 111447435
 
 Successfully implemented:
 
-1). Freelist for physical Pages, kmalloc
-2). Paging
-3). Loading Binaries by reading tarfs, switch to ring3, context switch between binaries, yield
-4). System calls
-5). COW Fork(), auto growing stack
-6). Handling segv page fault
-7). Terminals - reading and writing on console, timer, keyboard handling
-8). Execvpe with fork, execution of kill, sleep, echo and ps binaries
-9). Malloc and free implementation in user space
+- Freelist for physical Pages, kmalloc
+- Paging
+- Loading Binaries by reading tarfs, switch to ring3, context switch between binaries, yield
+- System calls
+- COW Fork(), auto growing stack
+- Handling segv page fault
+- Terminals - reading and writing on console, timer, keyboard handling
+- Execvpe with fork, execution of kill, sleep, echo and ps binaries
+- Malloc and free implementation in user space
 
 
 References:
